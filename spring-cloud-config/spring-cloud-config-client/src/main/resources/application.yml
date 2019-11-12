@@ -1,0 +1,9 @@
+server:
+  port: 9003
+spring:
+  application:
+    name: spring-cloud-config-client
+
+management:
+  security:
+    enabled: false # 关闭安全认证

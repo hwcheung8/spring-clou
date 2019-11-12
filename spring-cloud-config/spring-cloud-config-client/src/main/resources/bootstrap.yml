@@ -1,0 +1,19 @@
+spring:
+  cloud:
+    config:
+      name: application # 对应{application}部分
+      profile: dev # 对应{profile}部分
+      label: master # 对应git的分支
+      # uri: http://localhost:9002 # 配置中心服务端地址
+      discovery:
+        enabled: true # 开启Config服务发现支持
+        serviceId: spring-cloud-config-server # 指定server端的name,也就是server端spring.application.name的值
+
+eureka:
+  client: #客户端注册进eureka服务列表内
+    service-url:
+      #defaultZone: http://localhost:7001/eureka （单机）
+      defaultZone: http://eureka7001:7001/eureka/,http://eureka7002:7002/eureka/,http://eureka7003:7003/eureka/ #（集群）
+  instance:
+    instance-id: spring-cloud-config-client9002 # 自定义服务名称信息
+    prefer-ip-address: true # 访问路径可以现实IP
